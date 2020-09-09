@@ -1,0 +1,43 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-image: url(fondo.jpg);
+	background-size: cover;
+	background-repeat:no-repeat;
+}
+form{
+	width: 250px;
+	height: 250px;
+	margin: 40px;
+	background-color: white;
+	border-radius: 10px;
+}
+fieldset{
+	width: 250px;
+	height: 250px;
+	border:0;
+	padding: 10px;
+}
+input{
+	padding: 2px;
+	background-color: white;
+	border-radius: 5px;
+}
+textarea{
+	width: 210px;
+	height: 150px;
+	padding: 3px;
+	margin-top: 10px;
+}
+
+article{
+	width: 250px;
+	height: 250px;
+	margin: 40px;
+	background-color: yellow;
+	border-radius: 10px;
+	text-align: center;
+	display: inline-block;
+}

@@ -1,0 +1,71 @@
+*{
+	margin: 0px;
+	padding: 0px;	
+	font-family: arial;
+}
+header{
+	background-color: green;
+	background-image: url(style_img/design2_image1.jpg);
+	background-size: cover;
+	height: 60vh;
+	margin-top: 70px;
+}
+h1{
+	font-size: 45px;
+	color: black;
+	position: absolute;
+	top:10px;
+}
+div>h2{
+	text-align: center;
+	font-size: 30px;
+	margin-top: 0px;
+	padding: 5px;	
+	border: 3px solid black;
+}
+nav{
+	position: absolute;
+	top: 60px;
+	right: 0px;
+	left: 900px;
+}
+.btn{
+	margin: 20px;
+	padding: 5px 10px 5px 10px;
+	text-decoration: none;	
+	color: white;
+	background-color: blue;
+	border: 2px solid black;
+	box-shadow: 5px 5px black;
+}
+.bg{
+	background-color: green;
+}
+/*cambiar todo a viewport widht o height o a pixeles, pero siempre trabajar con las mismas dimensiones*/
+#logo{
+	width: 15vw;
+	float: left;
+}
+main{
+	width: 80vw;
+	float: right;
+	margin-top: 30px;
+}
+img[alt="logo_NYSL"]{
+	width: 150px;
+	height: 150px;
+	margin: 30px 10px 0px 20px;
+}
+
+dl dt{
+	margin: 0px 0px 10px 0px;
+}
+
+dl dd{
+	margin: 0px 0px 30px 20px;
+	text-align: justify;	
+}
+.negrita{
+	font-size: 25px;
+}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="corcho.css">
+	<title>Corcho</title>
+</head>
+<body>
+	<form onsubmit="crearTarjeta(event)">
+		<fieldset>
+			<label>Texto
+				<input type="text" name="titulo" >
+			</label>
+			<textarea name="texto" placeholder="escriba aqui su parrafo"></textarea>
+			<label>Color
+				<input type="color" name="color">
+			</label>
+			<label>
+				<input type="submit" value="Crear">
+			</label>
+		</fieldset>
+	</form>
+	<section id="cards">
+			<article>
+				<h3>Titulo</h3>
+				<p>Aqui va el parrafo</p>
+			</article>
+	</section>
+<script type="text/javascript" src="corcho.js"></script>
+</body>
+</html>

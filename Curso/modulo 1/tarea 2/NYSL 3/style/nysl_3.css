@@ -1,0 +1,140 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: arial;
+}
+.container{
+	display: grid;
+	grid-template-columns: 300px 1fr 1fr;
+	grid-template-rows:  100px repeat(2, 280px);
+	grid-template-areas: "nav	header	header"
+						 "nav   main    main"
+						 "nav	main	main"
+}
+/*header*/
+.container header{
+	grid-area: header;
+}
+h1{
+	font-size: 45px;
+	background-color: rgba(50, 71, 100 );
+	text-align: center;
+	color:white;
+}
+h2{
+	font-size: 20px;
+	color:rgb(50, 71, 100 );
+	padding: 3px;
+	text-align: center;
+	background-color: white;
+	border:1px solid black;
+	border-left:0px ;
+	border-right: 0px;
+	margin-top: 0px;
+}
+/*navbar*/
+.container nav{
+	background-color: gray;
+	background-image: url(pasto_bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	grid-area: nav;
+	border-right: 2px solid black;
+}
+img[alt="logo_NYSL"]{
+	height:200px;
+	width:200px ;
+	padding:20px 20px 10px 50px;
+}
+.btn{
+	display: block;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	margin: 20px 30px 20px 30px ;	
+	border: 1px solid black;
+	padding: 6px 0px 6px 0px;
+	text-align: center;
+	background-color: rgba(4, 5, 5, 0.3);
+}
+ .btn:hover{
+	background-color: rgba(4, 5, 5, 0.7);
+	transform: scale(1.1);
+	border:1px solid white;
+}
+.subrayado{
+	background-color: rgba(4, 5, 5, 0.7);
+	border:1px solid white;
+}
+/*main*/
+.container main{
+	grid-area: main;
+	margin: 10px 40px 5px 40px;
+	align-self: start;
+}
+/*main about*/
+#about{
+	display:grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: auto;
+	grid-gap: 30px;
+	
+}
+#about article{
+	border:1px solid rgb(22, 120, 47);
+	padding: 20px;
+	border-radius: 20px;
+
+}
+#about  h3{
+	text-align: center;
+	padding: 8px;
+	color:rgb(22, 120, 47);
+}
+ p{
+	font-size: 17px;
+}
+/*main home-contact*/
+main a{
+	color:rgb(22, 120, 47);
+	text-decoration:none;
+}
+main a:hover{
+	color: gray;
+}
+dl dt{
+	margin: 0px 0px 5px 0px;
+	padding: 20px 0px 10px 0px;
+	font-size: 18px;
+	color:rgb(22, 120, 47);
+}
+
+dl dd{
+	padding: 0px 20px 30px 30px;
+	text-align: justify;	
+}
+/*main gallery*/
+#gallery article:hover{
+	transform: scale(1.2);
+}
+#gallery{
+	margin-top: 50px;
+}
+article img{
+	height:100%;
+	width: 100%;
+	border:1px solid rgb(22, 120, 47);
+}
+#gallery> .container_gal{
+	display: grid;
+	grid-template-columns: repeat(3,200px);
+	grid-template-rows: repeat(2,200px);
+	grid-gap: 20px;
+	justify-content: center;
+	align-content: center;
+}
+
+
+
+
+
