@@ -67,16 +67,16 @@
         </ul>
       </div>
    </nav>         
-   <main class="m-3">
+   <main class="m-3" id="senate">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 col-lg-6">
+          <div class="col-12">
             <h2 class="mb-3">Senators</h2>
                   <p class="text-justify">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-lg-8">
+          <div class="col-12 col-sm-8 col-md-9 ">
             <form onsubmit=" return false">
                           
                           <label>Filter By Party : 
@@ -95,31 +95,31 @@
 
                       </form>
           </div>
-          <div class="col-12 col-lg-3">
-            <form  onsubmit="return false">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <label class="input-group-text bg-transparent border-0" for="inputGroupSelect01">Filter By State : </label>
-                            </div>
-                            <select class="custom-select border bg-light" id="selectOption" v-model="stateSelected">
-                              <option value="All" >All</option>
-                              <option  :value="state" v-for="state in options()">{{state}}</option>
-                            </select>
-                          </div>
-                       </form>
+          <div class="col-12 col-sm-4 col-md-3">
+            <form  onsubmit=" return false">
+              <div class="input-group">
+                     <div class="input-group-prepend">
+                        <label class="input-group-text bg-transparent border-0" for="inputGroupSelect01">Filter By State :</label>
+                    </div>
+                    <select class="custom-select border bg-light" id="selectOption" v-model="stateSelected">
+                        <option value="All">ALL</option>
+                        <option :value="state" v-for="state in states">{{state}}</option>
+                    </select>
+              </div>
+            </form>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <div class="table-responsive-md">
-                    <table id="senate-data" class="table table-borderless table-hover text-center ">
-                      <thead class="bg-light">
+                    <table id="senate-data" class="table table-borderless table-hover text-center table-striped ">
+                      <thead class="thead-light">
                         <tr>
                           <td>Full name</td>
                           <td>Party</td>
                           <td>State</td>
                           <td>Years in office</td>
-                          <td>%  w/Party</td>
+                          <td>%  Votes with Party</td>
                         </tr>
                       </thead>
                       <tbody>

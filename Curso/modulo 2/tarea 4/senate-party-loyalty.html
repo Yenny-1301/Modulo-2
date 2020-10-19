@@ -8,6 +8,8 @@
     <title>Senate Party Loyalty</title>
 </head>
 <body>
+
+  <div id="app">
     <header>
       <div class=" d-flex flex-row p-2 m-2 justify-content-between align-items-center">
             <div class="d-flex flex-row">
@@ -64,7 +66,7 @@
         </ul>
       </div>
    </nav>
-   <main id="loyalty">
+   <main id="senate">
     <div class="container-fluid">
       <div class="row text-justify m-4">
         <div class="col-12 col-md-6 ">
@@ -74,6 +76,35 @@
         <div class="col-12 col-md-6">
           <h2 class="text-info text-center">Senate at a Glance</h2>
           <table id="at-a-glance-loyalty" class="table table-borderless table-hover text-center ">
+            <thead>
+              <tr>
+                <td>Party</td>
+                <td>No Of Representants</td>
+                <td>% of Party Loyalty</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Democrats</td>
+                <td>{{statistics.democrats.length}}</td>
+                <td>{{sumPct(statistics.democrats,"votes_with_party_pct")}}</td>
+              </tr>
+              <tr>
+                <td>Republicans</td>
+                <td>{{statistics.republicans.length}}</td>
+                <td>{{sumPct(statistics.republicans,"votes_with_party_pct")}}</td>
+              </tr>
+              <tr>
+                <td>Independents</td>
+                <td>{{statistics.independents.length}}</td>
+                <td>{{sumPct(statistics.independents,"votes_with_party_pct")}}</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>{{members.length}}</td>
+                <td>{{sumPct(members,"votes_with_party_pct")}}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         </div>
@@ -83,13 +114,45 @@
         <div class="col-12 col-md-6">
           <h2 class="m-2 text-info text-center">Least Loyal <small>(Bottom 10% Loyalty)</small></h2>
           <div class="table-responsive-md">
-          <table id="least" class="table table-borderless table-hover text-center "></table>
+          <table id="least" class="table table-borderless table-hover text-center table-striped table-sm ">
+            <thead>
+              <tr>
+                <td>Full Name</td>
+                <td>N° Votes with Party</td>
+                <td>% Votes with Party</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="member in statistics.leastLoyal">
+                <td> <a :href="member.url" target="_blank" > {{member.first_name}} {{(member.middle_name || "")}} {{member.last_name}} </a></td>
+                <td>{{ Math.round(member.total_votes* member.votes_with_party_pct/100)}}</td>
+                <td>{{member.votes_with_party_pct}}%</td>
+              </tr>
+            </tbody>
+
+          </table>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <h2 class="m-2 text-info text-center">Most Loyal <small>(Top 10% Loyalty)</small></h2>
           <div class="table-responsive-md">
-          <table id="most" class="table table-borderless table-hover text-center"></table>
+          <table id="most" class="table table-borderless table-hover text-center table-striped table-sm">
+            <thead>
+              <tr>
+                <td>Full Name</td>
+                <td>N° Votes with Party</td>
+                <td>% Votes with Party</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="member in statistics.mostLoyal">
+                <td> <a :href="member.url" target="_blank" > {{member.first_name}} {{(member.middle_name || "")}} {{member.last_name}} </a></td>
+                <td>{{ Math.round(member.total_votes* member.votes_with_party_pct/100)}}</td>
+                <td>{{member.votes_with_party_pct}}%</td>
+              </tr>
+            </tbody>
+
+          </table>
           </div>
             
         </div>
@@ -99,10 +162,13 @@
    <footer class="bg-light text-center p-2">
           <p>@ 2016 TGIF | All Rights Reserved</p>
    </footer>
- <script src="js/senate-data.js"></script>
-<script src="js/statistics.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
-</body>
+  </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
+  <script src="js/main.js"></script>
+    
+  </body>
 </html>
